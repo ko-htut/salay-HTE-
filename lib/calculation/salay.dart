@@ -62,6 +62,9 @@ String SaLay(int age, int dayno, int mmbirthday) {
 myThy(int mymmbdd, String mythysu) {
   int myth = mymmbdd % 7;
   String mythysucl;
+  print(mymmbdd);
+  print(mythysu);
+  print(mymmbdd);
   switch (myth) {
     case 0:
       mythysucl =

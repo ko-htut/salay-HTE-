@@ -116,8 +116,10 @@ class _MyDbcState extends State<MyDbc> {
                     MyMMdata("မိမိမွေးသက္က၇ဇ် - ", jdncal.jdntommyear()),
                     MyMMdata("မိမိမွေးနံ  - ",
                         jdncal.jdntommday(widget.hours.toString())),
-                         MyMMdata(
-                        "မိမိ အဖွား - ", mYbdnb(jdncal.jdntommyear(), jdncal.jdntommdayno(widget.hours.toString()))),
+                    MyMMdata(
+                        "မိမိ အဖွား - ",
+                        mYbdnb(jdncal.jdntommyear(),
+                            jdncal.jdntommdayno(widget.hours.toString()))),
                     MyMMdata(
                         "မိမိ အသက် - ", agecalulate(widget.year).toString()),
                   ],
@@ -178,8 +180,11 @@ class _MyDbcState extends State<MyDbc> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          SaLay(agecalulate(year), int.parse(mmdayno),
-                              int.parse(mmyear)),
+                          SaLay(
+                              agecalulate(widget.year),
+                              int.parse(
+                                  jdncal.jdntommdayno(widget.hours.toString())),
+                              int.parse(jdncal.jdntommyear())),
                           style: TextStyle(
                               fontWeight: FontWeight.bold, color: Colors.white),
                         ),
@@ -196,13 +201,8 @@ class _MyDbcState extends State<MyDbc> {
 
   int agecalulate(int mybdyear) {
     int now = new DateTime.now().year;
-
-    if (mybdyear != null) {
-      print(now);
-      int myage = now - mybdyear;
-      return myage;
-    }
-    return 0;
+    int myage = now - mybdyear;
+    return myage;
   }
 
   MyMMdata(String name, String cal) {
@@ -240,22 +240,22 @@ class _MyDbcState extends State<MyDbc> {
       print(mmybd);
     } else if (mmbd == mmdayn + 3 || mmbd == mmdayn - 4) {
       mmybd = " အဓိပတိ ဖွား";
-       print(mmybd);
+      print(mmybd);
     } else if (mmbd == mmdayn + 6 || mmbd == mmdayn - 1) {
       mmybd = " ပုတိ ဖွား";
-       print(mmybd);
+      print(mmybd);
     } else if (mmbd == mmdayn + 2 || mmbd == mmdayn - 5) {
       mmybd = " ၇ာဇ ဖွား";
-       print(mmybd);
+      print(mmybd);
     } else if (mmbd == mmdayn + 5 || mmbd == mmdayn - 2) {
       mmybd = " သိုက် ဖွား";
-       print(mmybd);
+      print(mmybd);
     } else if (mmbd == mmdayn + 1 || mmbd == mmdayn - 6) {
       mmybd = " အထွန်း ဖွား";
-       print(mmybd);
+      print(mmybd);
     } else if (mmbd == mmdayn + 4 || mmbd == mmdayn - 3) {
       mmybd = " မ၇ဏ";
-       print(mmybd);
+      print(mmybd);
     }
     return mmybd;
   }

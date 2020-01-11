@@ -57,7 +57,9 @@ class _MyDbcState extends State<MyDbc> {
                             minWidth: 50,
                             elevation: 10,
                             shape: kBackButtonShape,
-                            // onPressed: onPressed,
+                             onPressed: (){
+                               Navigator.pop(context);
+                             },
                             child: Icon(Icons.arrow_back),
                           ),
                         ),
@@ -119,7 +121,7 @@ class _MyDbcState extends State<MyDbc> {
                     MyMMdata(
                         "မိမိ အဖွား - ",
                         mYbdnb(jdncal.jdntommyear(),
-                            jdncal.jdntommdayno(widget.hours.toString()))),
+                            jdncal.jdntommyear())),
                     MyMMdata(
                         "မိမိ အသက် - ", agecalulate(widget.year).toString()),
                   ],
@@ -228,12 +230,13 @@ class _MyDbcState extends State<MyDbc> {
   String mYbdnb(String mmyear, String mmdayno) {
     int mmyea = int.parse(mmyear);
     int mmdayn = int.parse(mmyear);
+    print("mYbdnb $mmyea");
     int mmbd = mmyea % 7;
-    // if (mmbd == 0) {
-    //   mmbd = 7;
-    // }else{
-
-    // }
+    if (mmbd == 0) {
+      mmbd = 7;
+      print("mmbd");
+    }else{
+    }
     String mmybd = "";
     if (mmbd == mmdayn) {
       mmybd = " ဘင်္ကဖွား";

@@ -22,19 +22,62 @@ String mmyear = "0";
 String mmbdy = "0";
 
 class _BodyChoState extends State<BodyCho> {
+  Color getColorFromHex(String hexColor) {
+    hexColor = hexColor.toUpperCase().replaceAll('#', '');
+
+    if (hexColor.length == 6) {
+      hexColor = 'FF' + hexColor;
+    }
+
+    return Color(int.parse(hexColor, radix: 16));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
+        color: Colors.white10,
       child: Column(
+      
         children: <Widget>[
-          SizedBox(
-            height: 20,
+          Stack(
+            children: <Widget>[
+              Container(
+                height: 200.0,
+                width: double.infinity,
+              ),
+              Container(
+                height: 125.0,
+                width: double.infinity,
+                color: getColorFromHex("#069340"),
+              ),
+             Positioned(
+              top: 75.0,
+              left: (MediaQuery.of(context).size.width / 2 - 50.0),
+              child: Container(
+                height: 100.0,
+                width: 100.0,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50.0),
+                    image: DecorationImage(
+                        image: NetworkImage(
+                            'https://zenprospect-production.s3.amazonaws.com/uploads/pictures/5c2fada0f651256d10f17beb/picture'),
+                        fit: BoxFit.cover)),
+              ),
+            ),
+            ],
           ),
-          SizedBox(
-            height: 20,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              ListTile(
+                leading: Icon(Icons.all_inclusive),
+                title: Text("hello"),
+              )
+            ],
           ),
           Card(
+            elevation: 2 ,
             child: ListTile(
                 leading: Icon(Icons.adjust),
                 title: Text("ထီပေါက်ကိန်း တွက်မည်...."),
@@ -53,7 +96,6 @@ class _BodyChoState extends State<BodyCho> {
                                 day: date.day,
                                 month: date.month,
                                 year: date.year,
-                              
                               )));
                     }, currentTime: DateTime.now(), locale: LocaleType.en);
                   }, currentTime: DateTime.now(), locale: LocaleType.en);
@@ -62,6 +104,5 @@ class _BodyChoState extends State<BodyCho> {
         ],
       ),
     ));
-    
   }
 }

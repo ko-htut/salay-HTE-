@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# TBD-salay
+# JDN day to MM date time
 =======
 # Eng Date (Day Time ) to MM Date ( Day Time )
 

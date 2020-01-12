@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:loading_placeholder/loading_placeholder.dart';
-import 'package:mahar_bote_flutter/bodycho.dart';
 import 'package:mahar_bote_flutter/calculation/jdn.dart';
 import 'package:mahar_bote_flutter/calculation/salay.dart';
 import 'package:mahar_bote_flutter/constant.dart';
-import 'package:mahar_bote_flutter/custom_top_bar.dart';
-import 'package:skeleton_text/skeleton_text.dart';
 import 'package:timer_count_down/timer_count_down.dart';
 
 class MyDbc extends StatefulWidget {
@@ -24,7 +20,6 @@ class MyDbc extends StatefulWidget {
   @override
   _MyDbcState createState() => _MyDbcState();
 }
-
 class _MyDbcState extends State<MyDbc> {
   bool _showTimer = true;
   int _seconds = 2;
@@ -200,13 +195,11 @@ class _MyDbcState extends State<MyDbc> {
       ),
     ));
   }
-
   int agecalulate(int mybdyear) {
     int now = new DateTime.now().year;
     int myage = now - mybdyear;
     return myage;
   }
-
   MyMMdata(String name, String cal) {
     return Padding(
       padding: const EdgeInsets.only(left: 10.0),
@@ -226,10 +219,9 @@ class _MyDbcState extends State<MyDbc> {
       ),
     );
   }
-
   String mYbdnb(String mmyear, String mmdayno) {
     int mmyea = int.parse(mmyear);
-    int mmdayn = int.parse(mmyear);
+    int mmdayn = int.parse(mmdayno);
     print("mYbdnb $mmyea");
     int mmbd = mmyea % 7;
     if (mmbd == 0) {
